@@ -1,0 +1,24 @@
+{
+  "name": "SALYIOR — Websites Built to Convert",
+  "short_name": "SALYIOR",
+  "description": "Custom websites built to earn trust and drive action.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#030B1A",
+  "theme_color": "#030B1A",
+  "icons": [
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
