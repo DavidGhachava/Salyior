@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation } from '../lib/router'
 import seo from '../data/seo.json'
+import { useI18n } from '../i18n/I18nProvider'
 
 type SeoEntry = {
   title: string
@@ -35,7 +36,7 @@ function upsertMeta(selector: string, attribute: 'name' | 'property', key: strin
   element.content = content
 }
 
-function createSchema(path: string, entry: SeoEntry) {
+function createSchema(path: string, entry: SeoEntry, language: string) {
   const canonical = absoluteUrl(path === '/' ? '/' : path)
   const image = absoluteUrl(entry.image || seo.defaultImage)
   const organization = {
@@ -60,7 +61,7 @@ function createSchema(path: string, entry: SeoEntry) {
     url: `${seo.siteUrl}/`,
     name: seo.siteName,
     publisher: { '@id': `${seo.siteUrl}/#organization` },
-    inLanguage: 'en',
+    inLanguage: language,
   }
   const webpage: Record<string, unknown> = {
     '@type': entry.schema === 'collection' ? 'CollectionPage' : entry.schema === 'contact' ? 'ContactPage' : 'WebPage',
@@ -71,7 +72,7 @@ function createSchema(path: string, entry: SeoEntry) {
     isPartOf: { '@id': `${seo.siteUrl}/#website` },
     about: { '@id': `${seo.siteUrl}/#organization` },
     primaryImageOfPage: { '@type': 'ImageObject', url: image },
-    inLanguage: 'en',
+    inLanguage: language,
   }
   const graph: Record<string, unknown>[] = [organization, website, webpage]
 
@@ -108,7 +109,7 @@ function createSchema(path: string, entry: SeoEntry) {
       creator: { '@id': `${seo.siteUrl}/#organization` },
       mainEntityOfPage: { '@id': `${canonical}#webpage` },
       sameAs: entry.liveUrl,
-      inLanguage: 'en',
+      inLanguage: language,
     })
   }
 
@@ -117,6 +118,7 @@ function createSchema(path: string, entry: SeoEntry) {
 
 export function PageMetadata() {
   const location = useLocation()
+  const { language } = useI18n()
 
   useEffect(() => {
     const normalizedPath = location.pathname !== '/' ? location.pathname.replace(/\/$/, '') : '/'
@@ -128,7 +130,7 @@ export function PageMetadata() {
       : 'noindex, follow'
 
     document.title = entry.title
-    document.documentElement.lang = 'en'
+    document.documentElement.lang = language
 
     upsertMeta('meta[name="description"]', 'name', 'description', entry.description)
     upsertMeta('meta[name="robots"]', 'name', 'robots', robots)
@@ -159,8 +161,8 @@ export function PageMetadata() {
       schemaElement.type = 'application/ld+json'
       document.head.appendChild(schemaElement)
     }
-    schemaElement.textContent = JSON.stringify(createSchema(normalizedPath, entry))
-  }, [location.pathname])
+    schemaElement.textContent = JSON.stringify(createSchema(normalizedPath, entry, language))
+  }, [language, location.pathname])
 
   return null
 }

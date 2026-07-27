@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { Link } from '../lib/Link'
 import { useLocation } from '../lib/router'
 import { navigation } from '../data/site'
+import { useI18n } from '../i18n/I18nProvider'
+import { LanguageSelector } from './LanguageSelector'
 import { Brand, ButtonLink, Icon } from './Primitives'
 
 export function SiteHeader() {
@@ -9,6 +11,7 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
   const [activeHref, setActiveHref] = useState<string | null>(null)
   const location = useLocation()
+  const { t } = useI18n()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -77,20 +80,23 @@ export function SiteHeader() {
           <Brand />
         </Link>
 
-        <nav className="desktop-nav" aria-label="Primary navigation">
+        <nav className="desktop-nav" aria-label={t('Primary navigation')}>
           {navigation.map((item) => (
-            <Link key={item.label} to={item.href} className={activeHref === item.href ? 'is-active' : ''} aria-current={activeHref === item.href ? 'location' : undefined}>{item.label}</Link>
+            <Link key={item.label} to={item.href} className={activeHref === item.href ? 'is-active' : ''} aria-current={activeHref === item.href ? 'location' : undefined}>{t(item.label)}</Link>
           ))}
         </nav>
 
-        <ButtonLink href={location.pathname === '/contact' ? 'mailto:salyiorbusiness@gmail.com' : '/contact'} className="nav-cta">
-          {location.pathname === '/contact' ? 'Email the studio' : 'Start a project'}
-        </ButtonLink>
+        <div className="nav-actions">
+          <LanguageSelector />
+          <ButtonLink href={location.pathname === '/contact' ? 'mailto:salyiorbusiness@gmail.com' : '/contact'} className="nav-cta">
+            {t(location.pathname === '/contact' ? 'Email the studio' : 'Start a project')}
+          </ButtonLink>
+        </div>
 
         <button
           className="menu-trigger"
           type="button"
-          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-label={t(open ? 'Close menu' : 'Open menu')}
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((current) => !current)}
@@ -100,18 +106,18 @@ export function SiteHeader() {
       </div>
 
       <div id="mobile-menu" className={`mobile-menu ${open ? 'mobile-menu--open' : ''}`} aria-hidden={!open}>
-        <nav aria-label="Mobile navigation">
+        <nav aria-label={t('Mobile navigation')}>
           {navigation.map((item, index) => (
             <Link key={item.label} to={item.href} className={activeHref === item.href ? 'is-active' : ''} aria-current={activeHref === item.href ? 'location' : undefined} tabIndex={open ? 0 : -1}>
-              <span>0{index + 1}</span>{item.label}<Icon name="arrow-up-right" />
+              <span>0{index + 1}</span>{t(item.label)}<Icon name="arrow-up-right" />
             </Link>
           ))}
         </nav>
         <div className="mobile-menu__footer">
-          <p>Founder-led web studio</p>
-          <p>Remote studio · Working worldwide</p>
+          <p>{t('Founder-led web studio')}</p>
+          <p>{t('Remote studio · Working worldwide')}</p>
           <ButtonLink href={location.pathname === '/contact' ? 'mailto:salyiorbusiness@gmail.com' : '/contact'} tabIndex={open ? 0 : -1}>
-            {location.pathname === '/contact' ? 'Email the studio' : 'Start a project'}
+            {t(location.pathname === '/contact' ? 'Email the studio' : 'Start a project')}
           </ButtonLink>
         </div>
       </div>

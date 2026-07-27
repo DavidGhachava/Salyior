@@ -35,7 +35,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; background: var(--bg); }
+html { overflow-x: clip; scroll-behavior: smooth; background: var(--bg); }
 body { margin: 0; min-width: 0; min-height: 100vh; overflow-x: clip; background: radial-gradient(circle at 82% 3%, rgba(0, 217, 238, .05), transparent 25%), var(--bg); }
 body.menu-open { overflow: hidden; }
 button, input, textarea, select { font: inherit; }
@@ -112,6 +112,25 @@ ul { padding: 0; list-style: none; }
 .desktop-nav a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: 3px; height: 2px; border-radius: 99px; background: linear-gradient(90deg, var(--accent), var(--accent-bright)); box-shadow: 0 0 10px rgba(0,217,238,.72); transition: right 320ms var(--ease); }
 .desktop-nav a:hover, .desktop-nav a.is-active { color: var(--text); }
 .desktop-nav a:hover::after, .desktop-nav a.is-active::after { right: 0; }
+.nav-actions { justify-self: end; display: flex; align-items: center; gap: 10px; }
+.language-selector { position: relative; z-index: 4; }
+.language-selector__trigger { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; gap: 4px; border: 1px solid var(--border); border-radius: 14px; color: var(--text); background: rgba(7,21,41,.82); box-shadow: inset 0 1px rgba(255,255,255,.035); cursor: pointer; transition: border-color 180ms, background 180ms, color 180ms, transform 180ms; }
+.language-selector__trigger > span { font-size: 10px; font-weight: 700; letter-spacing: .09em; }
+.language-selector__trigger svg { color: var(--muted); transition: transform 220ms var(--ease), color 180ms; }
+.language-selector__trigger:hover, .language-selector--open .language-selector__trigger { border-color: rgba(0,217,238,.5); color: var(--accent-bright); background: rgba(0,217,238,.08); }
+.language-selector__trigger:active { transform: scale(.97); }
+.language-selector--open .language-selector__trigger svg { color: var(--accent); transform: rotate(180deg); }
+.language-selector__menu { position: absolute; top: calc(100% + 10px); right: 0; width: 218px; padding: 9px; border: 1px solid rgba(92,221,238,.2); border-radius: 17px; background: rgba(3,13,30,.985); box-shadow: 0 24px 70px rgba(0,0,0,.45), inset 0 1px rgba(255,255,255,.04); backdrop-filter: blur(18px); transform-origin: top right; animation: language-menu-in 180ms var(--ease) both; }
+.language-selector__menu[hidden] { display: none; }
+.language-selector__eyebrow { padding: 8px 11px 9px; color: var(--quiet); font-size: 8px; letter-spacing: .13em; text-transform: uppercase; }
+.language-selector__menu > button { width: 100%; min-height: 47px; display: grid; grid-template-columns: 32px 1fr 14px; align-items: center; padding: 0 11px; border: 0; border-radius: 11px; color: var(--muted); background: transparent; text-align: left; cursor: pointer; transition: color 160ms, background 160ms; }
+.language-selector__menu > button > span { color: var(--quiet); font-size: 9px; letter-spacing: .08em; }
+.language-selector__menu > button strong { font-size: 13px; font-weight: 570; }
+.language-selector__menu > button i { width: 7px; height: 7px; display: grid; place-items: center; border: 1px solid var(--border); border-radius: 50%; }
+.language-selector__menu > button i span { width: 3px; height: 3px; border-radius: inherit; background: var(--accent-bright); box-shadow: 0 0 8px var(--accent); }
+.language-selector__menu > button:hover, .language-selector__menu > button.is-active { color: var(--text); background: rgba(0,217,238,.075); }
+.language-selector__menu > button.is-active > span { color: var(--accent); }
+@keyframes language-menu-in { from { opacity: 0; transform: translateY(-6px) scale(.975); } to { opacity: 1; transform: none; } }
 .nav-cta { justify-self: end; min-height: 48px; padding-inline: 21px; }
 .menu-trigger { display: none; width: 48px; height: 48px; border: 1px solid var(--border); border-radius: 50%; background: var(--surface); align-items: center; justify-content: center; cursor: pointer; }
 .mobile-menu { display: none; }
@@ -689,8 +708,9 @@ ul { padding: 0; list-style: none; }
 
 @media (max-width: 900px) {
   :root { --section-space: 104px; }
-  .nav-shell { grid-template-columns: 1fr auto; background: rgba(3,11,26,.96); border-color: var(--border); }
+  .nav-shell { grid-template-columns: 1fr auto auto; background: rgba(3,11,26,.96); border-color: var(--border); }
   .desktop-nav, .nav-cta { display: none; }
+  .nav-actions { gap: 0; }
   .menu-trigger { display: flex; justify-self: end; }
   .mobile-menu { position: fixed; inset: -20px 0 0; z-index: -1; min-height: 100svh; display: flex; flex-direction: column; justify-content: space-between; padding: 130px 24px 35px; background: radial-gradient(circle at 85% 18%, rgba(0,217,238,.11), transparent 30%), rgba(2,8,23,.99); opacity: 0; visibility: hidden; transform: translateY(-12px); transition: opacity 220ms, visibility 220ms, transform 280ms var(--ease); pointer-events: auto; }
   .mobile-menu--open { opacity: 1; visibility: visible; transform: none; }
@@ -757,6 +777,8 @@ ul { padding: 0; list-style: none; }
   :root { --page-pad: 19px; --section-space: 88px; }
   .site-header { top: 12px; }
   .nav-shell { width: calc(100% - 24px); min-height: 62px; padding: 6px 7px 6px 15px; border-radius: 16px; }
+  .language-selector__trigger { width: 44px; height: 44px; border-radius: 50%; }
+  .language-selector__menu { position: fixed; top: 84px; right: 12px; width: min(260px, calc(100vw - 24px)); }
   .brand__mark { width: 27px; height: 27px; }
   .brand__word { font-size: 12px; }
   .section-intro { display: block; margin-bottom: 50px; }
@@ -937,6 +959,7 @@ ul { padding: 0; list-style: none; }
   .footer-bottom { grid-template-columns: 1fr; gap: 12px; }
   .footer-bottom > p:nth-child(2), .footer-bottom > p:nth-child(3) { display: none; }
   .footer-bottom > div { justify-self: start; margin-top: 8px; }
+  .footer-bottom > div { flex-wrap: wrap; row-gap: 10px; }
   .page-hero { padding: 155px 0 80px; }
   .page-hero h1 { font-size: clamp(48px, 14vw, 65px); }
   .page-hero > .container > p { margin-top: 27px; font-size: 16px; }

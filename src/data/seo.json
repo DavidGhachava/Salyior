@@ -79,6 +79,13 @@
       "schema": "legal",
       "index": false
     },
+    "/cookies": {
+      "title": "Cookie Notice | SALYIOR",
+      "description": "How SALYIOR uses local browser storage for language preferences and approaches cookies and tracking.",
+      "label": "SALYIOR cookie notice",
+      "schema": "legal",
+      "index": false
+    },
     "/404": {
       "title": "Page not found | SALYIOR",
       "description": "The requested page could not be found.",

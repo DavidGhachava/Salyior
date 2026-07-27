@@ -3,6 +3,7 @@ import { SiteFooter } from './components/SiteFooter'
 import { SiteHeader } from './components/SiteHeader'
 import { PageSignalTransition, SignalRail } from './components/MotionEffects'
 import { PageMetadata } from './components/PageMetadata'
+import { useI18n } from './i18n/I18nProvider'
 import { useLocation } from './lib/router'
 import { HomePage } from './pages/HomePage'
 
@@ -29,6 +30,7 @@ function ScrollManager() {
 
 function AppShell() {
   const location = useLocation()
+  const { t } = useI18n()
   const path = location.pathname !== '/' ? location.pathname.replace(/\/$/, '') : '/'
   let page
 
@@ -40,9 +42,10 @@ function AppShell() {
   else if (path === '/contact') page = <ContactPage />
   else if (path === '/privacy') page = <LegalPage type="privacy" />
   else if (path === '/terms') page = <LegalPage type="terms" />
+  else if (path === '/cookies') page = <LegalPage type="cookies" />
   else page = <NotFoundPage />
 
-  return <><a className="skip-link" href="#main-content">Skip to content</a><ScrollManager /><PageMetadata /><PageSignalTransition routeKey={path} /><SignalRail /><SiteHeader /><div id="main-content"><Suspense fallback={<div className="route-loader" role="status"><span />Loading page…</div>}>{page}</Suspense></div><SiteFooter /></>
+  return <><a className="skip-link" href="#main-content">{t('Skip to content')}</a><ScrollManager /><PageMetadata /><PageSignalTransition routeKey={path} /><SignalRail /><SiteHeader /><div id="main-content"><Suspense fallback={<div className="route-loader" role="status"><span />{t('Loading page…')}</div>}>{page}</Suspense></div><SiteFooter /></>
 }
 
 export default function App() {
