@@ -1,5 +1,5 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, PropsWithChildren, ReactNode } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from '../lib/Link'
 
 type IconName =
   | 'arrow-up-right'

@@ -28,7 +28,7 @@ function schemaFor(path, entry) {
   const organization = {
     '@type': 'Organization', '@id': `${seo.siteUrl}/#organization`, name: seo.siteName, url: `${seo.siteUrl}/`,
     logo: { '@type': 'ImageObject', url: `${seo.siteUrl}/favicon-512.png`, width: 512, height: 512 },
-    email: 'hello@salyior.com', description: seo.routes['/'].description, areaServed: 'Worldwide',
+    email: 'salyiorbusiness@gmail.com', description: seo.routes['/'].description, areaServed: 'Worldwide',
     knowsAbout: ['Web design', 'Frontend development', 'Conversion strategy', 'Technical SEO'],
   }
   const website = {

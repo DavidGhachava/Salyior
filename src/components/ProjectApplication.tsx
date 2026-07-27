@@ -110,7 +110,7 @@ export function ProjectApplication({ compact = false }: { compact?: boolean }) {
               <span><i />Remote collaboration worldwide</span>
               <span><i />Direct reply from the person building it</span>
             </div>
-            <a className="application-email" href="mailto:hello@salyior.com">Prefer email? <strong>hello@salyior.com</strong> <Icon name="arrow-up-right" /></a>
+            <a className="application-email" href="mailto:salyiorbusiness@gmail.com">Prefer email? <strong>salyiorbusiness@gmail.com</strong> <Icon name="arrow-up-right" /></a>
           </div>
 
           <form ref={formRef} className="project-form" action="/api/contact" method="post" onSubmit={submit} noValidate>

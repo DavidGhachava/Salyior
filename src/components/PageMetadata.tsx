@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation } from '../lib/router'
 import seo from '../data/seo.json'
 
 type SeoEntry = {
@@ -49,7 +49,7 @@ function createSchema(path: string, entry: SeoEntry) {
       width: 512,
       height: 512,
     },
-    email: 'hello@salyior.com',
+    email: 'salyiorbusiness@gmail.com',
     description: routes['/'].description,
     areaServed: 'Worldwide',
     knowsAbout: ['Web design', 'Frontend development', 'Conversion strategy', 'Technical SEO'],

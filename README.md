@@ -41,7 +41,7 @@ Copy `.env.example` into the deployment provider's environment settings and conf
 - `CONTACT_TO_EMAIL`
 - `CONTACT_FROM_EMAIL`
 
-The sending domain must be verified with Resend before production delivery. Until these values are configured, the form returns a transparent fallback message directing visitors to `hello@salyior.com`.
+The sending domain used by `CONTACT_FROM_EMAIL` must be verified with Resend before production delivery. `CONTACT_TO_EMAIL` is the inquiry destination and defaults to `salyiorbusiness@gmail.com`. Until delivery is configured, the form returns a transparent fallback message directing visitors to that address.
 
 ## Netlify deployment
 

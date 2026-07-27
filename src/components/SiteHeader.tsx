@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from '../lib/Link'
+import { useLocation } from '../lib/router'
 import { navigation } from '../data/site'
 import { Brand, ButtonLink, Icon } from './Primitives'
 
@@ -82,7 +83,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <ButtonLink href={location.pathname === '/contact' ? 'mailto:hello@salyior.com' : '/contact'} className="nav-cta">
+        <ButtonLink href={location.pathname === '/contact' ? 'mailto:salyiorbusiness@gmail.com' : '/contact'} className="nav-cta">
           {location.pathname === '/contact' ? 'Email the studio' : 'Start a project'}
         </ButtonLink>
 
@@ -109,7 +110,7 @@ export function SiteHeader() {
         <div className="mobile-menu__footer">
           <p>Founder-led web studio</p>
           <p>Remote studio · Working worldwide</p>
-          <ButtonLink href={location.pathname === '/contact' ? 'mailto:hello@salyior.com' : '/contact'} tabIndex={open ? 0 : -1}>
+          <ButtonLink href={location.pathname === '/contact' ? 'mailto:salyiorbusiness@gmail.com' : '/contact'} tabIndex={open ? 0 : -1}>
             {location.pathname === '/contact' ? 'Email the studio' : 'Start a project'}
           </ButtonLink>
         </div>

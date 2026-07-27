@@ -1,9 +1,9 @@
 import { lazy, Suspense, useEffect } from 'react'
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { SiteFooter } from './components/SiteFooter'
 import { SiteHeader } from './components/SiteHeader'
 import { PageSignalTransition, SignalRail } from './components/MotionEffects'
 import { PageMetadata } from './components/PageMetadata'
+import { useLocation } from './lib/router'
 import { HomePage } from './pages/HomePage'
 
 const loadSupportingPages = () => import('./pages/SupportingPages')
@@ -29,9 +29,22 @@ function ScrollManager() {
 
 function AppShell() {
   const location = useLocation()
-  return <><a className="skip-link" href="#main-content">Skip to content</a><ScrollManager /><PageMetadata /><PageSignalTransition routeKey={location.pathname} /><SignalRail /><SiteHeader /><div id="main-content"><Suspense fallback={<div className="route-loader" role="status"><span />Loading page…</div>}><Routes><Route path="/" element={<HomePage />} /><Route path="/work" element={<WorkPage />} /><Route path="/work/:slug" element={<ProjectPage />} /><Route path="/services" element={<ServicesPage />} /><Route path="/process" element={<ProcessPage />} /><Route path="/contact" element={<ContactPage />} /><Route path="/privacy" element={<LegalPage type="privacy" />} /><Route path="/terms" element={<LegalPage type="terms" />} /><Route path="*" element={<NotFoundPage />} /></Routes></Suspense></div><SiteFooter /></>
+  const path = location.pathname !== '/' ? location.pathname.replace(/\/$/, '') : '/'
+  let page
+
+  if (path === '/') page = <HomePage />
+  else if (path === '/work') page = <WorkPage />
+  else if (/^\/work\/[^/]+$/.test(path)) page = <ProjectPage />
+  else if (path === '/services') page = <ServicesPage />
+  else if (path === '/process') page = <ProcessPage />
+  else if (path === '/contact') page = <ContactPage />
+  else if (path === '/privacy') page = <LegalPage type="privacy" />
+  else if (path === '/terms') page = <LegalPage type="terms" />
+  else page = <NotFoundPage />
+
+  return <><a className="skip-link" href="#main-content">Skip to content</a><ScrollManager /><PageMetadata /><PageSignalTransition routeKey={path} /><SignalRail /><SiteHeader /><div id="main-content"><Suspense fallback={<div className="route-loader" role="status"><span />Loading page…</div>}>{page}</Suspense></div><SiteFooter /></>
 }
 
 export default function App() {
-  return <BrowserRouter><AppShell /></BrowserRouter>
+  return <AppShell />
 }

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from '../lib/Link'
 import { Brand, Container, Icon } from './Primitives'
 import { SignalGraphic } from './MotionEffects'
 
@@ -18,7 +18,7 @@ export function SiteFooter() {
           <div className="footer-status"><i />Taking on select projects</div>
           <div className="footer-lead__action">
             <p>Have a serious project in mind?</p>
-            <a href="mailto:hello@salyior.com">Let’s talk <span><Icon name="arrow-up-right" /></span></a>
+            <a href="mailto:salyiorbusiness@gmail.com">Let’s talk <span><Icon name="arrow-up-right" /></span></a>
           </div>
         </div>
 
@@ -26,7 +26,7 @@ export function SiteFooter() {
           <div className="footer-brand"><Brand /><p>Websites built to earn trust and drive action.</p></div>
           <div className="footer-columns">
             <div><p>Explore</p>{footerNavigation.map((item) => <Link key={item.label} to={item.href}>{item.label}</Link>)}</div>
-            <div><p>Contact</p><a href="mailto:hello@salyior.com">hello@salyior.com <Icon name="arrow-up-right" /></a><Link to="/contact">Project application <Icon name="arrow-right" /></Link></div>
+            <div><p>Contact</p><a href="mailto:salyiorbusiness@gmail.com">salyiorbusiness@gmail.com <Icon name="arrow-up-right" /></a><Link to="/contact">Project application <Icon name="arrow-right" /></Link></div>
             <div><p>Studio</p><span>Remote by design</span><span>Working worldwide</span></div>
           </div>
         </div>

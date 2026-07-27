@@ -69,7 +69,7 @@ export default async function handler(request: Request) {
   const fromEmail = process.env.CONTACT_FROM_EMAIL
   if (!apiKey || !toEmail || !fromEmail) {
     console.error('Contact endpoint is missing email environment variables.')
-    return json(503, { message: 'Email delivery is being configured. Please email hello@salyior.com directly for now.' })
+    return json(503, { message: 'Email delivery is being configured. Please email salyiorbusiness@gmail.com directly for now.' })
   }
 
   const rows = [
@@ -100,7 +100,7 @@ export default async function handler(request: Request) {
 
   if (!emailResponse.ok) {
     console.error('Email provider rejected contact request.', await emailResponse.text())
-    return json(502, { message: 'The details could not be delivered. Please email hello@salyior.com directly.' })
+    return json(502, { message: 'The details could not be delivered. Please email salyiorbusiness@gmail.com directly.' })
   }
 
   return json(200, { message: 'Project details received.' })

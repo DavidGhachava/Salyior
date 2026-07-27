@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { m, useReducedMotion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link } from '../lib/Link'
 import { faqs, outcomes, principles, processStages, projects } from '../data/site'
 import type { Project } from '../types'
 import { ButtonLink, Container, Icon, SectionIntro, SectionLabel } from './Primitives'
