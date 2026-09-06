@@ -10,54 +10,14 @@
   node_bundler = "esbuild"
 
 [[redirects]]
-  from = "/work"
-  to = "/work.html"
-  status = 200
-
-[[redirects]]
-  from = "/work/arqi-georgia"
-  to = "/work/arqi-georgia.html"
-  status = 200
+  from = "/services"
+  to = "/solutions"
+  status = 301
 
 [[redirects]]
   from = "/work/arrive-city-guides"
-  to = "/work/arrive-city-guides.html"
-  status = 200
-
-[[redirects]]
-  from = "/work/kristina-languages"
-  to = "/work/kristina-languages.html"
-  status = 200
-
-[[redirects]]
-  from = "/services"
-  to = "/services.html"
-  status = 200
-
-[[redirects]]
-  from = "/process"
-  to = "/process.html"
-  status = 200
-
-[[redirects]]
-  from = "/contact"
-  to = "/contact.html"
-  status = 200
-
-[[redirects]]
-  from = "/privacy"
-  to = "/privacy.html"
-  status = 200
-
-[[redirects]]
-  from = "/terms"
-  to = "/terms.html"
-  status = 200
-
-[[redirects]]
-  from = "/cookies"
-  to = "/cookies.html"
-  status = 200
+  to = "/work/arrive"
+  status = 301
 
 [[redirects]]
   from = "/*"

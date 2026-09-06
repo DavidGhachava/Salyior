@@ -1,11 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url><loc>https://salyior.com/</loc><lastmod>2026-07-22</lastmod><priority>1.0</priority></url>
-  <url><loc>https://salyior.com/work</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://salyior.com/work/arqi-georgia</loc><lastmod>2026-07-22</lastmod><priority>0.7</priority><image:image><image:loc>https://salyior.com/projects/arqi.webp</image:loc><image:title>ARQI Georgia real estate website</image:title></image:image></url>
-  <url><loc>https://salyior.com/work/arrive-city-guides</loc><lastmod>2026-07-22</lastmod><priority>0.7</priority><image:image><image:loc>https://salyior.com/projects/arrive.webp</image:loc><image:title>Arrive city guide website</image:title></image:image></url>
-  <url><loc>https://salyior.com/work/kristina-languages</loc><lastmod>2026-07-22</lastmod><priority>0.7</priority><image:image><image:loc>https://salyior.com/projects/kristina-languages.webp</image:loc><image:title>Kristina Languages teaching website</image:title></image:image></url>
-  <url><loc>https://salyior.com/services</loc><lastmod>2026-07-22</lastmod><priority>0.8</priority></url>
-  <url><loc>https://salyior.com/process</loc><lastmod>2026-07-22</lastmod><priority>0.7</priority></url>
-  <url><loc>https://salyior.com/contact</loc><lastmod>2026-07-22</lastmod><priority>0.9</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://salyior.com/en</loc><lastmod>2026-09-06</lastmod><priority>1.0</priority></url>
+  <url><loc>https://salyior.com/ka</loc><lastmod>2026-09-06</lastmod><priority>1.0</priority></url>
+  <url><loc>https://salyior.com/ru</loc><lastmod>2026-09-06</lastmod><priority>1.0</priority></url>
+  <url><loc>https://salyior.com/en/work</loc><lastmod>2026-09-06</lastmod><priority>0.8</priority></url>
+  <url><loc>https://salyior.com/ka/work</loc><lastmod>2026-09-06</lastmod><priority>0.8</priority></url>
+  <url><loc>https://salyior.com/ru/work</loc><lastmod>2026-09-06</lastmod><priority>0.8</priority></url>
+  <url><loc>https://salyior.com/en/solutions</loc><lastmod>2026-09-06</lastmod><priority>0.9</priority></url>
+  <url><loc>https://salyior.com/ka/solutions</loc><lastmod>2026-09-06</lastmod><priority>0.9</priority></url>
+  <url><loc>https://salyior.com/ru/solutions</loc><lastmod>2026-09-06</lastmod><priority>0.9</priority></url>
+  <url><loc>https://salyior.com/en/process</loc><lastmod>2026-09-06</lastmod><priority>0.7</priority></url>
+  <url><loc>https://salyior.com/ka/process</loc><lastmod>2026-09-06</lastmod><priority>0.7</priority></url>
+  <url><loc>https://salyior.com/ru/process</loc><lastmod>2026-09-06</lastmod><priority>0.7</priority></url>
+  <url><loc>https://salyior.com/en/pricing</loc><lastmod>2026-09-06</lastmod><priority>0.8</priority></url>
+  <url><loc>https://salyior.com/ka/pricing</loc><lastmod>2026-09-06</lastmod><priority>0.8</priority></url>
+  <url><loc>https://salyior.com/ru/pricing</loc><lastmod>2026-09-06</lastmod><priority>0.8</priority></url>
+  <url><loc>https://salyior.com/en/about</loc><lastmod>2026-09-06</lastmod><priority>0.7</priority></url>
+  <url><loc>https://salyior.com/ka/about</loc><lastmod>2026-09-06</lastmod><priority>0.7</priority></url>
+  <url><loc>https://salyior.com/ru/about</loc><lastmod>2026-09-06</lastmod><priority>0.7</priority></url>
+  <url><loc>https://salyior.com/en/contact</loc><lastmod>2026-09-06</lastmod><priority>0.9</priority></url>
+  <url><loc>https://salyior.com/ka/contact</loc><lastmod>2026-09-06</lastmod><priority>0.9</priority></url>
+  <url><loc>https://salyior.com/ru/contact</loc><lastmod>2026-09-06</lastmod><priority>0.9</priority></url>
+  <url><loc>https://salyior.com/en/privacy</loc><lastmod>2026-09-06</lastmod><priority>0.2</priority></url>
+  <url><loc>https://salyior.com/ka/privacy</loc><lastmod>2026-09-06</lastmod><priority>0.2</priority></url>
+  <url><loc>https://salyior.com/ru/privacy</loc><lastmod>2026-09-06</lastmod><priority>0.2</priority></url>
+  <url><loc>https://salyior.com/en/web-design-batumi</loc><lastmod>2026-09-06</lastmod><priority>0.9</priority></url>
+  <url><loc>https://salyior.com/ka/web-design-batumi</loc><lastmod>2026-09-06</lastmod><priority>0.9</priority></url>
+  <url><loc>https://salyior.com/ru/web-design-batumi</loc><lastmod>2026-09-06</lastmod><priority>0.9</priority></url>
+  <url><loc>https://salyior.com/en/web-design-tbilisi</loc><lastmod>2026-09-06</lastmod><priority>0.8</priority></url>
+  <url><loc>https://salyior.com/ka/web-design-tbilisi</loc><lastmod>2026-09-06</lastmod><priority>0.8</priority></url>
+  <url><loc>https://salyior.com/ru/web-design-tbilisi</loc><lastmod>2026-09-06</lastmod><priority>0.8</priority></url>
+  <url><loc>https://salyior.com/en/work/arqi-georgia</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/ka/work/arqi-georgia</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/ru/work/arqi-georgia</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/en/work/kristina-languages</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/ka/work/kristina-languages</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/ru/work/kristina-languages</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/en/work/sama</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/ka/work/sama</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/ru/work/sama</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/en/work/arrive</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/ka/work/arrive</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/ru/work/arrive</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/en/work/inkognito</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/ka/work/inkognito</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/ru/work/inkognito</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/en/work/lajele</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/ka/work/lajele</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/ru/work/lajele</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/en/work/artcrimes</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/ka/work/artcrimes</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/ru/work/artcrimes</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/en/work/esthetic-rolls</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/ka/work/esthetic-rolls</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/ru/work/esthetic-rolls</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/en/work/aura-coffee</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/ka/work/aura-coffee</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
+  <url><loc>https://salyior.com/ru/work/aura-coffee</loc><lastmod>2026-09-06</lastmod><priority>0.6</priority></url>
 </urlset>
