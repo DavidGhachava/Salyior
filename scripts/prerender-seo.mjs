@@ -8,7 +8,8 @@ const template = await readFile(join(dist, 'index.html'), 'utf8')
 const origin = 'https://salyior.com'
 const languages = ['en', 'ka', 'ru']
 const projects = ['arqi-georgia', 'kristina-languages', 'sama', 'arrive', 'inkognito', 'lajele', 'artcrimes', 'esthetic-rolls', 'aura-coffee']
-const routes = ['', '/work', '/solutions', '/process', '/pricing', '/about', '/web-design-batumi', '/web-design-tbilisi', '/contact', '/privacy', ...projects.map(slug => `/work/${slug}`)]
+const services = ['websites', 'seo', 'web-apps', 'bookings-integrations']
+const routes = ['', '/work', '/solutions', ...services.map(slug => `/solutions/${slug}`), '/process', '/pricing', '/about', '/web-design-batumi', '/web-design-tbilisi', '/contact', '/privacy', ...projects.map(slug => `/work/${slug}`)]
 
 const seo = {
   en: {
@@ -38,11 +39,35 @@ const labels = {
   privacy: { en: 'Privacy', ka: 'კონფიდენციალურობა', ru: 'Конфиденциальность' },
 }
 
+const serviceMeta = {
+  websites: {
+    en: ['Business Website Design in Georgia', 'Custom, mobile-ready business websites designed to build trust, explain your offer and turn visitors into enquiries.'],
+    ka: ['ბიზნეს ვებსაიტების შექმნა საქართველოში', 'ინდივიდუალური, მობილურზე მორგებული ბიზნეს ვებსაიტები ნდობის, მკაფიო შეთავაზებისა და ახალი მომართვებისთვის.'],
+    ru: ['Создание сайтов для бизнеса в Грузии', 'Индивидуальные адаптивные сайты, которые вызывают доверие, понятно представляют бизнес и приносят заявки.'],
+  },
+  seo: {
+    en: ['SEO & Website Performance in Georgia', 'Search-ready website structure, local SEO foundations and fast loading for businesses in Batumi, Tbilisi and across Georgia.'],
+    ka: ['SEO და ვებსაიტის სისწრაფე საქართველოში', 'ძიებისთვის მომზადებული სტრუქტურა, ლოკალური SEO და სწრაფი ჩატვირთვა ბათუმის, თბილისის და საქართველოს ბიზნესებისთვის.'],
+    ru: ['SEO и скорость сайта в Грузии', 'Структура под поиск, локальная SEO-основа и быстрая загрузка для бизнеса в Батуми, Тбилиси и по всей Грузии.'],
+  },
+  'web-apps': {
+    en: ['Custom Web App Development in Georgia', 'Custom portals, dashboards and browser-based tools built around your customers, team and business workflow.'],
+    ka: ['ინდივიდუალური ვებაპლიკაციების შექმნა საქართველოში', 'ინდივიდუალური პორტალები, დაფები და ბრაუზერული ხელსაწყოები თქვენი მომხმარებლების, გუნდისა და სამუშაო პროცესისთვის.'],
+    ru: ['Разработка веб-приложений в Грузии', 'Индивидуальные порталы, панели и браузерные инструменты для клиентов, команды и процессов вашего бизнеса.'],
+  },
+  'bookings-integrations': {
+    en: ['Online Bookings & Website Integrations', 'Booking calendars, catalogues, payment connections and useful integrations that let customers act at any time.'],
+    ka: ['ონლაინ ჯავშნები და ვებსაიტის ინტეგრაციები', 'დაჯავშნის კალენდრები, კატალოგები, გადახდები და სასარგებლო ინტეგრაციები, რომლებიც მომხმარებლებს ნებისმიერ დროს მოქმედების საშუალებას აძლევს.'],
+    ru: ['Онлайн-бронирование и интеграции сайта', 'Календари бронирования, каталоги, платежи и полезные интеграции, доступные клиентам в любое время.'],
+  },
+}
+
 function escape(value) { return value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;') }
 function pageMeta(language, path) {
   if (!path) return seo[language].home
   if (path === '/web-design-batumi') return seo[language].batumi
   if (path === '/web-design-tbilisi') return seo[language].tbilisi
+  if (path.startsWith('/solutions/')) { const service=path.split('/').pop(); return serviceMeta[service]?.[language] || seo[language].home }
   if (path.startsWith('/work/')) { const name=path.split('/').pop().replaceAll('-', ' '); return [`${name.replace(/\b\w/g, char=>char.toUpperCase())} | SALYIOR`, seo[language].home[1]] }
   const key=path.slice(1); return [`${labels[key]?.[language] || 'SALYIOR'} | SALYIOR`, seo[language].home[1]]
 }
