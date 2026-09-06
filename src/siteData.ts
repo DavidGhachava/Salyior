@@ -15,11 +15,11 @@ export const projects = [
 ]
 
 export const solutions = [
-  { id: 'websites', name: 'Look like the right choice.', tag: 'Websites', text: 'A distinctive website that makes your business clear, credible and easy to choose.', includes: ['Custom visual direction', 'Responsive development', 'Clear content structure'] },
-  { id: 'seo', name: 'Be there when customers search.', tag: 'SEO & performance', text: 'Fast, search-ready pages that help the right people discover your business online.', includes: ['Page titles & descriptions', 'Performance optimisation', 'Indexing & sitemap foundations'] },
-  { id: 'enquiries', name: 'Make the next step obvious.', tag: 'Lead generation', text: 'Clear contact actions and straightforward forms turn more interested visitors into real conversations.', includes: ['Clear customer journeys', 'Enquiry paths & forms', 'Analytics setup when agreed'] },
-  { id: 'integrations', name: 'Useful beyond the homepage.', tag: 'Bookings & integrations', text: 'The right tools for your customers, from menus and collections to booking integrations.', includes: ['Menus & product collections', 'Booking integrations', 'Content editing when needed'] },
-  { id: 'apps', name: 'Your workflow. Made simpler.', tag: 'Web apps', text: 'Custom browser-based tools for the way your business works. A useful experience for your customers or your team.', includes: ['Customer portals', 'Dashboards & internal tools', 'Tailored workflows'] },
+  { id: 'websites', name: 'Look like the right choice.', tag: 'Websites', text: 'Make a strong first impression—and an easy choice.', includes: ['Custom design', 'Mobile-first'] },
+  { id: 'seo', name: 'Get found on Google.', tag: 'SEO & performance', text: 'Help the right customers discover your business.', includes: ['Search-ready', 'Fast loading'] },
+  { id: 'enquiries', name: 'Turn visits into enquiries.', tag: 'Lead generation', text: 'Make it effortless to call, message or request a quote.', includes: ['Clear actions', 'Simple forms'] },
+  { id: 'integrations', name: 'Make business easier.', tag: 'Bookings & integrations', text: 'Let customers book, browse or order without friction.', includes: ['Bookings & menus', 'Useful integrations'] },
+  { id: 'apps', name: 'Simplify how work gets done.', tag: 'Web apps', text: 'Useful tools built around your customers or team.', includes: ['Portals & dashboards', 'Tailored workflows'] },
 ]
 export const steps = [
   { title: 'A conversation.', text: 'We learn your business, audience and goals.', detail: 'Together, we agree the pages, features, content and price before the build begins.', deliverable: 'A clear scope & quote' },
