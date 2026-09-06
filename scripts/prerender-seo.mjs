@@ -29,6 +29,17 @@ const seo = {
   },
 }
 
+const staticHero = {
+  en: { kicker: 'Independent web studio · Batumi, Georgia', first: 'Get found.', second: 'Get chosen.', text: 'Fast, search-ready websites that help new customers discover your business, trust what they see and get in touch.', cta: 'Build my website' },
+  ka: { kicker: 'დამოუკიდებელი ვებსტუდია · ბათუმი, საქართველო', first: 'გიპოვონ.', second: 'აგირჩიონ.', text: 'სწრაფი, ძიებისთვის მომზადებული ვებსაიტები, რომლებიც ახალ მომხმარებლებს თქვენი ბიზნესის პოვნაში, ნდობასა და დაკავშირებაში ეხმარება.', cta: 'შევქმნათ ჩემი ვებსაიტი' },
+  ru: { kicker: 'Независимая веб-студия · Батуми, Грузия', first: 'Вас находят.', second: 'Вас выбирают.', text: 'Быстрые сайты, подготовленные к поиску, помогают новым клиентам найти ваш бизнес, довериться ему и связаться с вами.', cta: 'Создать мой сайт' },
+}
+
+function staticHeroHtml(language) {
+  const copy = staticHero[language]
+  return `<main class="preload-shell"><section class="preload-hero"><div class="preload-copy"><p class="preload-kicker">${copy.kicker}</p><h1>${copy.first}<span>${copy.second}</span></h1><p>${copy.text}</p><a class="preload-cta" href="/${language}/contact">${copy.cta}</a></div><div class="preload-image"><img src="/projects/arqi.webp" alt="ARQI Georgia property website" width="1600" height="910" /></div></section></main>`
+}
+
 const labels = {
   work: { en: 'Web Design Portfolio', ka: 'ვებდიზაინის პორტფოლიო', ru: 'Портфолио веб-дизайна' },
   solutions: { en: 'Web Design, Development & SEO Services', ka: 'ვებდიზაინი, დეველოპმენტი და SEO', ru: 'Веб-дизайн, разработка и SEO' },
@@ -77,6 +88,7 @@ for (const language of languages) for (const path of routes) {
   const canonical = `${origin}/${language}${path}`
   const alternates = languages.map(code => `<link rel="alternate" hreflang="${code}" href="${origin}/${code}${path}" data-salyior-hreflang="true" />`).join('\n    ')
   let html = template
+    .replace(/<!-- static-hero:start -->[\s\S]*?<!-- static-hero:end -->/, path ? '' : staticHeroHtml(language))
     .replace('<html lang="en">', `<html lang="${language}">`)
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${escape(title)}</title>`)
     .replace(/<meta name="description" content="[^"]*"\s*\/>/, `<meta name="description" content="${escape(description)}" />`)
